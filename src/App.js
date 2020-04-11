@@ -12,9 +12,9 @@ const api = {
 
 function App() {
   const [state, setState] = useState({
-    s: "",
-    results: [],
-    selected: {},
+    s: "", //search query -- value which is typed in the box
+    results: [], //results
+    selected: {}, //for popup once a result is clicked
   });
 
   const apiurl = `${api.base}=${api.key}`;
@@ -63,7 +63,6 @@ function App() {
       <main>
         <Search handleInput={handleInput} search={search} />
         <Results results={state.results} openPopup={openPopup} />
-
         {typeof state.selected.Title != "undefined" ? (
           <Popup selected={state.selected} closePopup={closePopup} />
         ) : (
